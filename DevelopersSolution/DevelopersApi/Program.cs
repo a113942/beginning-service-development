@@ -1,3 +1,5 @@
+using DevelopersApi.Adapters;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<MongoDevelopersAdapter>((sp) =>
+{
+    return new MongoDevelopersAdapter("mongodb://root:TokyoJoe138!@localhost:27017");
+});
 
 var app = builder.Build();
 
