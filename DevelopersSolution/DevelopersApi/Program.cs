@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<MongoDevelopersAdapter>((sp) =>
 {
-    return new MongoDevelopersAdapter("mongodb://root:TokyoJoe138!@localhost:27017");
+    return new MongoDevelopersAdapter(builder.Configuration.GetConnectionString("mongo"));
 });
 
 var app = builder.Build();
