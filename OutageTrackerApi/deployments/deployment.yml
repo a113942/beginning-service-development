@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: outagetracker-api
+  namespace: developers
+spec:
+  selector:
+    matchLabels:
+      app: outagetracker-api
+  template:
+    metadata:
+      labels:
+        app: outagetracker-api
+    spec:
+      containers:
+      - name: outagetracker-api
+        image: outage-tracker:v0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

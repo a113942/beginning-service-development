@@ -8,7 +8,7 @@ public record DeveloperSummaryModel(string Id, string FirstName, string LastName
 
 public class CollectionResponse<T>
 {
-    public List<DeveloperSummaryModel> Data { get; set; } = new();
+    public List<T> Data { get; set; } = new();
 }
 
 public record DeveloperCreateModel(string FirstName, string LastName, string Email, string Phone);

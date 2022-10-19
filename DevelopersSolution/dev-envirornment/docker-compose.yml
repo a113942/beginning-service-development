@@ -8,12 +8,12 @@ services:
       - 27017:27017
     volumes:
       - mongo_data:/data/db
-  api:
-    image: developers-api:v0.3
-    ports:
-      - 1338:80
-    environment:
-      ConnectionStrings__mongo: "mongodb://root:TokyoJoe138!@mongo:27017"
+  # api:
+  #   image: developers-api:v0.3
+  #   ports:
+  #     - 1338:80
+  #   environment:
+  #     ConnectionStrings__mongo: "mongodb://root:TokyoJoe138!@mongo:27017"
 
 volumes:
   mongo_data:
